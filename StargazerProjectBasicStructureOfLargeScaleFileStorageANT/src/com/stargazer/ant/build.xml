@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="StargazerProjectBasicStructureOfLargeScaleFileStorage" default="StartMakeDir" basedir=".">
+	<!--构建基本存储目录版本 命名规则:StargazerProjectFileStorageRule+Number(X.X)-->
+	<property name="Version" value="SPFSR1.1"/>
+	<tstamp>
+		<format property="StargazerRootDirName" pattern="YYYYMMddHHMMss" locale="en"/>
+	</tstamp>
+	<target name="StartMakeDir" depends="MakeRootDir,Animation,Knowledge,Movie,Music,Soft">
+	</target>
+	<target name="MakeRootDir">
+		<property name="RootDir" value="StargazerLargeFileStorage@${StargazerRootDirName}@${Version}"/>
+		<mkdir dir="${RootDir}"/>
+	</target>
+	<target name="Animation" depends="MakeRootDir">
+		<property name="AnimationDir" value="${RootDir}/Animation"/>
+		<mkdir dir="${AnimationDir}"/>
+		
+		<mkdir dir="${AnimationDir}/Anime"/>
+		<mkdir dir="${AnimationDir}/Anime/BDrip"/>
+		<mkdir dir="${AnimationDir}/Anime/HBDrip"/>
+
+		<mkdir dir="${AnimationDir}/Comic" />
+		<mkdir dir="${AnimationDir}/Galgame" />
+		<mkdir dir="${AnimationDir}/LightNovel" />
+		<mkdir dir="${AnimationDir}/Magazine" />
+	</target>
+	<target name="Knowledge" depends="MakeRootDir">
+			<property name="KnowledgeDir" value="${RootDir}/Knowledge"/>
+			<mkdir dir="${KnowledgeDir}/Computer"/>
+		    <mkdir dir="${KnowledgeDir}/Biological"/>
+		    <mkdir dir="${KnowledgeDir}/Art"/>
+		    <mkdir dir="${KnowledgeDir}/Physical"/>
+	     	<mkdir dir="${KnowledgeDir}/Mathematics"/>
+	</target>
+	<target name="Movie" depends="MakeRootDir">
+				<property name="MovieDir" value="${RootDir}/Movie"/>
+				<mkdir dir="${MovieDir}/English"/>
+			    <mkdir dir="${MovieDir}/Japan"/>
+		        <mkdir dir="${MovieDir}/Other"/>
+			    <mkdir dir="${MovieDir}/HMovie"/>
+	</target>
+	<target name="Music" depends="MakeRootDir">
+				<property name="MusicDir" value="${RootDir}/Music"/>
+				<mkdir dir="${MusicDir}/Animation"/>
+			    <mkdir dir="${MusicDir}/Classical"/>
+		        <mkdir dir="${MusicDir}/NewAge"/>
+			    <mkdir dir="${MusicDir}/Pop"/>
+		        <mkdir dir="${MusicDir}/Movie"/>
+		        <mkdir dir="${MusicDir}/Game"/>
+	</target>
+	<target name="Soft" depends="MakeRootDir">
+				<property name="SoftDir" value="${RootDir}/Soft"/>
+		
+		 		<mkdir dir="${SoftDir}/Windows"/>
+		        <mkdir dir="${SoftDir}/Windows/Soft"/>
+		        <mkdir dir="${SoftDir}/Windows/OperatingSystem"/>
+		
+			    <mkdir dir="${SoftDir}/Mac"/>
+		
+		        <mkdir dir="${SoftDir}/Linux"/>
+		        <mkdir dir="${SoftDir}/Linux/Soft"/>
+		        	<mkdir dir="${SoftDir}/Linux/OperatingSystem"/>
+		
+			    <mkdir dir="${SoftDir}/Unix"/>
+		        <mkdir dir="${SoftDir}/Unix/Soft"/>
+			    	<mkdir dir="${SoftDir}/Unix/OperatingSystem"/>
+	</target>
+</project>
