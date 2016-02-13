@@ -1,0 +1,3 @@
+# StargazerProjectBasicStructureOfLargeScaleFileStorageANT
+构建基本存储目录
+用于硬盘存储系统分类
